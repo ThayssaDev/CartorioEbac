@@ -162,15 +162,31 @@ int main() //função principal, aparece primeiro
 
 	
 		setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
-		
+		while (1) // Loop infinito até a senha correta
+	{
+			system("cls");
 			printf("\t « Login para o Registro de usuários da EBAC » \n\n\n");
 			printf("* Senha do Administrador: ");
 			scanf("%s", senhadigitada);
 	
-	comparacao = strcmp(senhadigitada, "123");
+		comparacao = strcmp(senhadigitada, "123");
 	
-	
-	if(comparacao == 0)
+		if (comparacao == 0) 
+		{
+	   	 break; // Sai do loop se a senha estiver correta
+		} 
+		else 
+		{
+			system("cls");
+			printf("\tSenha incorreta! Tente novamente!\n\n");
+			system("pause");
+		}
+	}
+
+
+	system("cls");
+
+
 	{
 
 		for(laco=1;laco=1;) 
@@ -220,11 +236,5 @@ int main() //função principal, aparece primeiro
 		}
 	}
 	
-	else
-	{
-		system("cls");
-		printf("\tSenha incorreta! Tente novamente!\n");
-		
-	}
-		
+	
 }
