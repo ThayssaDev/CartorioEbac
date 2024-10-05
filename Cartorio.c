@@ -5,21 +5,20 @@
 
 
 //inicio da função de registro
-int registro() //função responsável por cadastrar os usuários no sistemas
+int registro() //função responsável por registrar/cadastrar os usuários no sistemas
 {		
 		//inicio da criação de variáveis/string
-		char arquivo[40]; 
-		char cpf[40]; //número de caracteres
-		char nome[40];
-		
-		char sobrenome[40];
-		char cargo[40];
+		char arquivo[40]; //variável do tipo char (onde serão guardado os dados) //número de caracteres
+		char cpf[40]; //variável do tipo char (onde serão guardado os cpf) //número de caracteres
+		char nome[40]; //variável do tipo char (onde serão guardado os nomes) //número de caracteres
+		char sobrenome[40]; //variável do tipo char (onde serão guardado os sobrenomes) //número de caracteres
+		char cargo[40]; //variável do tipo char (onde serão guardado os cargos) //número de caracteres
 		//fim da criação de variáveis/string
 		
-		printf("\tDigite o CPF a ser cadastrado: "); //coletando informações do usuário 
-		scanf("%s", cpf); //escanea a resposta do usuário e armazena na string
+		printf("Digite o CPF a ser cadastrado: "); //coletando informações do usuário 
+		scanf("%s", cpf); //escanea a resposta do usuário e armazena na string cpf
 		
-		strcpy(arquivo, cpf); //responsável por copiar os valores das string
+		strcpy(arquivo, cpf); //responsável por copiar os valores das string e guarda em outra
 		
 		printf("\n"); //pular linha
 		FILE *file; //chama o FILE para criar um arquivo
@@ -164,76 +163,76 @@ int main() //função principal, aparece primeiro
 		setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
 		while (1) // Loop infinito até a senha correta
 	{
-			system("cls");
-			printf("\t « Login para o Registro de usuários da EBAC » \n\n\n");
-			printf("* Senha do Administrador: ");
-			scanf("%s", senhadigitada);
+			system("cls"); //limpa a tela
+			printf("\t « Login para o Registro de usuários da EBAC » \n\n\n"); //indicação ao usuário de local do sistema
+			printf("* Senha do Administrador: "); //pedido de senha para acesso
+			scanf("%s", senhadigitada); //coleta e salva em 'senhadigitada'
 	
-		comparacao = strcmp(senhadigitada, "123");
+		comparacao = strcmp(senhadigitada, "123"); //compara as duas strings
 	
-		if (comparacao == 0) 
+		if (comparacao == 0) //validação, se 'senhadigitada' for igual a 0 (nem maior e nem menor que zero) está correta (igual a certa)
 		{
-	   	 break; // Sai do loop se a senha estiver correta
+	   	 break; // Sai do loop se a senha estiver correta para entrar no menu principal
 		} 
-		else 
+		else //caso contrário
 		{
-			system("cls");
-			printf("\tSenha incorreta! Tente novamente!\n\n");
-			system("pause");
+			system("cls"); //limpa a tela
+			printf("\tSenha incorreta! Tente novamente!\n\n"); //aviso ao usuário
+			system("pause"); //pause para ler
 		}
 	}
 
 
-	system("cls");
+	system("cls"); //limpa a tela
 
 
 	{
 
-		for(laco=1;laco=1;) 
+		for(laco=1;laco=1;) //for=loop (inicialização(1 foi usado para iniciar); condição(caso igual a inicialização o loop será infinito); incremento(não foi posto)
 		{
-			system("cls");
+			system("cls"); //limpa a tela
 			
 			setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
 	
 			printf("\t « Registro de usuários da EBAC » \n\n"); //inicio do menu
-    		printf("> Escolha a opção desejada do menu: \n\n");
-    		printf("\t1-Registrar nomes;\n");
-    		printf("\t2-Consultar nomes;\n");
-    		printf("\t3-Deletar nomes;\n");
-    		printf("\t4-Sair do sistema.\n\n");
-    	
-    		printf("Opção: "); //fim do menu
+    		printf("> Escolha a opção desejada do menu: \n\n");  //menu opções
+    		printf("\t1-Registrar nomes;\n"); //para registrar nomes digitar '1'
+    		printf("\t2-Consultar nomes;\n"); //para consultar nomes digitar '2'
+    		printf("\t3-Deletar nomes;\n"); //para deletar nomes digitar '3'
+    		printf("\t4-Sair do sistema.\n\n"); //para encerrar o sistema digitar '4'
+    		//fim do menu
+    		printf("Opção: "); //local para inserir a opção
     	
     		scanf("%d", &opcao); //escanea a resposta do usuário //%d = para números inteiros (resposta anterior do usuário)
     	
     		system("cls"); //para limpar a tela //system=para falar com o sistema
     	
-    		switch(opcao) 
+    		switch(opcao) //switch avalia a variável 'opcao' e compara com um dos casos abaixo 
 			{
-    			case 1:
-    			registro(); //chamada de funções
-				break;
+    			case 1: //caso 1 (se 'opcao' for igual à '1')
+    			registro(); //chamada da função 'registro ()'
+				break; //quebra do loop
 			
-				case 2:
-				consulta(); //chamada de funções
-    	 		break;
+				case 2: //caso 2 (se 'opcao' for igual à '2')
+				consulta(); //chamada da função 'consulta ()'
+    	 		break; //quebra do loop
     	 	
-    	 		case 3:
-    	 		deletar(); //chamada de funções
-    			break;
+    	 		case 3: //caso 3 (se 'opcao' for igual à '3')
+    	 		deletar(); //chamada da função 'deletar ()'
+    			break; //quebra do loop
     		
-    			case 4:
-    			printf("\tObrigado por utilizar o sistema!\n");
-    			return 0;
-    			break;
+    			case 4: //caso 4 (se 'opcao' for igual à '4')
+    			printf("\tObrigado por utilizar o sistema!\n"); //aviso ao usuário
+    			return 0; //interrompe imediatamente a execução do programa
+    			break; //quebra do loop
     		
-    			default:
+    			default: //caso não seja igual a nenhum dos casos anteriores..(caso contrário) 
     			printf("Essa opção não está disponível!\n\n"); //aviso ao usuário
-				system("pause");
-				break;
+				system("pause"); //pause para ler
+				break; //quebra do loop
 			
-			}
-		}
+			} // fim do switch case
+		} //fim do for
 	}
 	
 	
